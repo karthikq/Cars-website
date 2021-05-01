@@ -1,0 +1,323 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/header.ejs") -%>
+  <body>
+    <div class="overlay"></div>
+    <div class="home-container">
+      <div class="home-contents">
+        <div class="bg-image">
+          <img
+            src="https://images.pexels.com/photos/4517066/pexels-photo-4517066.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="error"
+            class="images"
+            id="images"
+          />
+          <div class="nav-bar-mobile">
+            <div class="nav-bar-icon">
+              <svg
+                id="image-bar"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-menu"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="nav-bar">
+            <ul>
+              <% if(typeof user !="undefined"){ %>
+              <li style="text-transform: capitalize">
+                <%=user.substring(0,4)%>
+              </li>
+              <%}else{%>
+              <li><a href="/user/login" class="user-log"> User </a></li>
+              <%} %> <% if(typeof user !="undefined"){ %>
+              <li>
+                <a href="/about?auth=<%=auth%>&user=<%=user%>" class="user-log">
+                  About
+                </a>
+              </li>
+              <%}else{%>
+              <li><a href="/about?auth=false" class="user-log"> About </a></li>
+              <%} %> <% if(typeof auth !="undefined"){ %>
+              <li><a href="/user/logout" class="user-log"> logout </a></li>
+              <%}else{ %>
+              <li><a href="/user/login" class="user-log">login</a></li>
+              <% }%>
+            </ul>
+          </div>
+          <!-- <% if(typeof user !="undefined"){ %>
+          <div class="user-name">
+            <p>Welcome <%=user%></p>
+          </div>
+          <%}%> -->
+          <div class="slider">
+            <ul>
+              <li class="slider-li" data="m">
+                <a href="/cars/musclecar" class="mobile-link"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke=" black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-external-link"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+                muscle cars
+              </li>
+              <li class="slider-li" data="r">
+                <a href="/cars/racingcar" class="mobile-link"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke=" black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-external-link"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+                racing cars
+              </li>
+              <li class="slider-li" data="v">
+                <a href="/cars/vintagecar" class="mobile-link"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke=" black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+                vintage cars
+              </li>
+              <li class="slider-li" data="s">
+                <a href="/cars/suv" class="mobile-link"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke=" black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-external-link"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+                suv's
+              </li>
+            </ul>
+          </div>
+          <div class="social-media-icons">
+            <i class="fab fa-facebook-square si"></i>
+            <i class="fab fa-instagram si"></i>
+            <i class="fab fa-twitter si"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script>
+    const slider = document.querySelectorAll(".slider-li");
+    const imgSrc = document.querySelector(".images");
+    const navBar = document.querySelector(".nav-bar-mobile");
+    const nav = document.querySelector(".nav-bar");
+    const bar = document.querySelector("#image-bar");
+
+    slider.forEach((item) => {
+      item.addEventListener("mouseover", () => {
+        const value = item.classList.contains("slider-li");
+
+        handleChange(item);
+        if (value) {
+          item.classList.remove("slider-li");
+          item.classList.add("slider-active");
+        } else {
+          item.classList.add("slider-active");
+        }
+      });
+      item.addEventListener("mouseout", () => {
+        item.classList.remove("slider-active");
+        item.classList.add("slider-li");
+        imgSrc.classList.remove("fadein");
+      });
+      window.addEventListener("load", () => {
+        if (window.screen.width >= 726) {
+          item.addEventListener("click", () => {
+            const redirectUrl = item.getAttribute("data");
+            if (redirectUrl === "m") window.location.href = "/cars/musclecar";
+            if (redirectUrl === "r") window.location.href = "/cars/racingcar";
+            if (redirectUrl === "v") window.location.href = "/cars/vintagecar";
+            if (redirectUrl === "s") window.location.href = "/cars/suv";
+          });
+        }
+      });
+    });
+    navBar.addEventListener("click", () => {
+      nav.classList.toggle("nav-bar-active");
+      const exists = nav.classList.contains("nav-bar-active");
+
+      if (exists) {
+        bar.children[0].setAttribute("x1", 18);
+        bar.children[0].setAttribute("y1", 6);
+        bar.children[0].setAttribute("x2", 6);
+        bar.children[0].setAttribute("y2", 18);
+
+        bar.children[1].setAttribute("x1", 6);
+        bar.children[1].setAttribute("y1", 6);
+        bar.children[1].setAttribute("x2", 18);
+        bar.children[1].setAttribute("y2", 18);
+        bar.children[2].style.setProperty("opacity", "0");
+      } else {
+        bar.children[0].setAttribute("x1", 3);
+        bar.children[0].setAttribute("y1", 12);
+        bar.children[0].setAttribute("x2", 21);
+        bar.children[0].setAttribute("y2", 12);
+
+        bar.children[1].setAttribute("x1", 3);
+        bar.children[1].setAttribute("y1", 6);
+        bar.children[1].setAttribute("x2", 21);
+        bar.children[1].setAttribute("y2", 6);
+        bar.children[2].style.setProperty("opacity", "1");
+      }
+    });
+    function handleChange(item) {
+      const data = item.getAttribute("data");
+      const contains = imgSrc.classList.contains("fadein");
+      switch (data) {
+        case "m":
+          if (contains) {
+            imgSrc.classList.remove("fadein");
+          } else {
+            $("#images").prop(
+              "src",
+              "https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            );
+            imgSrc.classList.add("fadein");
+          }
+          break;
+        case "r":
+          if (contains) {
+            imgSrc.classList.remove("fadein");
+          } else {
+            $("#images").prop(
+              "src",
+              "https://images.pexels.com/photos/6239334/pexels-photo-6239334.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            );
+            imgSrc.classList.add("fadein");
+          }
+
+          break;
+        case "v":
+          if (contains) {
+            imgSrc.classList.remove("fadein");
+          } else {
+            imgSrc.src =
+              "https://images.pexels.com/photos/5463096/pexels-photo-5463096.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+            imgSrc.classList.add("fadein");
+          }
+
+          break;
+        case "s":
+          if (contains) {
+            imgSrc.classList.remove("fadein");
+          } else {
+            imgSrc.src =
+              "https://images.pexels.com/photos/1149069/pexels-photo-1149069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+            imgSrc.classList.add("fadein");
+          }
+
+          break;
+        default:
+          break;
+      }
+    }
+    gsap.from(".bg-image", {
+      opacity: 0,
+
+      duration: 2,
+    });
+    gsap.to(".overlay", {
+      y: "-100vh",
+      duration: 1,
+      ease: "ease",
+    });
+    gsap.from(".nav-bar li", {
+      opacity: 0,
+      y: 40,
+      stagger: 0.6,
+      duration: 2,
+      ease: "linear",
+    });
+    gsap.from(".social-media-icons i", {
+      opacity: 0,
+      stagger: 0.3,
+      delay: 2,
+      duration: 2,
+    });
+
+    gsap.from(".nav-bar-mobile", {
+      opacity: 0,
+      x: 50,
+
+      duration: 2,
+    });
+
+    gsap.from(".home-container", {
+      opacity: 0,
+
+      duration: 4,
+    });
+  </script>
+</html>

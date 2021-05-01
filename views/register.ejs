@@ -1,0 +1,61 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/header.ejs") -%>
+
+  <body>
+    <main class="container">
+      <div class="login-contents">
+        <div class="login-page">
+          <div class="video">
+            <video autoplay loop muted>
+              <source src="../images/Pexels Videos 1437396 (1).mp4" />
+            </video>
+          </div>
+          <div class="login-details">
+            <h2 class="stagger">Sing up</h2>
+            <form action="/user/register" method="POST">
+              <%- include('messages.ejs') %>
+              <label class="stagger"> Email </label>
+              <input
+                class="stagger"
+                type="text"
+                name="username"
+                placeholder="username"
+              />
+              <input
+                class="stagger"
+                type="email"
+                name="email"
+                placeholder="Enter your Email"
+                required
+              />
+
+              <label class="stagger"> Password </label>
+              <input
+                class="stagger"
+                type="password"
+                name="password"
+                placeholder="Enter your Password"
+              />
+              <label class="stagger">Confirm Password</label>
+              <input
+                class="stagger"
+                type="password"
+                name="password2"
+                placeholder="Confirm Password"
+              />
+              <button type="submit" class="button stagger">Sign up</button>
+              <p class="register-btn">
+                <span class="stagger"> If you have an account </span>
+                <a href="/user/login" class="stagger">Sign In</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include("./partials/footer.ejs") -%>
+  </body>
+</html>

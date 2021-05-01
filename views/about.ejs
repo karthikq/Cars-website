@@ -1,0 +1,43 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/header.ejs") -%>
+  <body>
+    <section class="about-conatiner">
+      <div class="about-contents">
+        <div class="about-main">
+          <div class="about-main-details">
+            <div class="about-details">
+              <h2 class="stagger-2">About</h2>
+              <p class="stagger-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+                ipsam cupiditate temporibus quibusdam dicta tempora illo veniam
+                quia enim. Necessitatibus adipisci nobis velit voluptas delectus
+                corrupti omnis nisi vel reiciendis.
+              </p>
+              <p class="stagger-2">Made by Karthik @ 2021</p>
+              <% if(typeof user !="undefined"){ %>
+              <div class="stagger-2">
+                <a href="/home?auth=<%=auth%>&user=<%=user%>">Go back</a>
+              </div>
+              <%} else{%>
+              <div class="stagger-2">
+                <a href="/home">Go back</a>
+              </div>
+              <%} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script>
+      gsap.from(".stagger-2", { opacity: 0, y: 20, duration: 2, stagger: 0.3 });
+      gsap.from(".about-main-details", {
+        opacity: 0,
+        duration: 3,
+      });
+    </script>
+  </body>
+</html>

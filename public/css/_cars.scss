@@ -1,0 +1,213 @@
+/** @format */
+
+.car-container {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: black;
+  h2 {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.938);
+    margin-bottom: 0.5rem;
+
+    padding-top: 0.8rem;
+  }
+}
+.car-contents {
+  padding: 3% 8%;
+}
+.car-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.car-box {
+  margin: 0.5rem;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+
+  position: relative;
+  .car-img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    background-color: black;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  }
+  &::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.349);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    transition: 0.5s ease;
+    opacity: 1;
+  }
+  &:hover::before {
+    opacity: 0;
+  }
+}
+
+.car-box-active {
+  position: fixed;
+  z-index: 100000;
+
+  width: 80%;
+  height: 80%;
+
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
+}
+.modal {
+  overflow: hidden;
+  top: 0rem;
+  position: fixed;
+  padding-top: 4rem;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  display: none;
+  transition: 0.5s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.596);
+  .modal-img {
+    width: 80%;
+    height: 80%;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s ease-in-out;
+    }
+    .car-text {
+      position: absolute;
+
+      bottom: 0rem;
+      text-align: center;
+      z-index: 500;
+      background-color: rgba(0, 0, 0, 0.719);
+      width: 100%;
+      height: 5.5rem;
+      padding-bottom: 0.5rem;
+      padding-top: 0.2rem;
+      opacity: 1;
+      transition: all 0.5s;
+      h2 {
+        font-family: "Josefin Sans", sans-serif;
+        text-align: center;
+        color: white;
+        margin: 0.5rem 0 0;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.87);
+      }
+      .car-icons {
+        width: 5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding-bottom: 0.5rem;
+        p {
+          color: rgb(255, 255, 255);
+          cursor: pointer;
+          opacity: 0.5;
+          padding: 0.3rem;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      .download-link {
+        color: white;
+        text-decoration: none;
+        opacity: 0.5;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.modal-active {
+  display: block;
+  transition: 0.5s ease-in-out;
+  animation: fade 1s ease-in-out forwards;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 1510px) {
+  .car-contents {
+    padding: 3% 2%;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .car-contents {
+    padding: 4% 2%;
+  }
+  .car-box {
+    margin: 0.5rem;
+    width: 200px;
+    height: 300px;
+
+    .car-img {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .car-contents {
+    padding: 6% 0%;
+  }
+  .car-box {
+    margin: 0.5rem;
+    width: 150px;
+    height: 200px;
+  }
+  .car-container {
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+}

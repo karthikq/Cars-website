@@ -1,0 +1,87 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/header.ejs") -%>
+  <body>
+    <div class="car-container">
+      <h2 class="header" ><%=name%></h2>
+      <div class="car-contents">
+      
+        <div class="car-flex">
+        
+          <% if(typeof cars != "undefined") { cars.map((car)=>{ %>
+          <div class="car-box image-stagger">
+            <a
+              class="car-img image-stagger"
+              href="<%=car.img%>"
+              data-name="<%=car.name%>"
+            >
+              <img src="<%=car.img%>" alt="" class="image-stagger" />
+            </a>
+          </div>
+
+          <% }) }%>
+          <div class="modal">
+            <div class="modal-img">
+              <img src="" alt="" class="modal-img-main" />
+              <div class="car-text">
+                <h2 class="car-text-main">nmae</h2>
+                <div class="car-icons" >
+                  <a href="" class="download-link" target="_blank"
+                  ><i class="fas fa-angle-down"></i
+                  ></a>
+                <p><i class="fas fa-times close"></i></i></p>
+                </div>
+           
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script>
+      const carBox = document.querySelectorAll(".car-box");
+      const text = document.querySelectorAll(".car-text");
+      const modal = document.querySelector(".modal");
+      const modalImg = document.querySelector(".modal-img-main");
+      const carText = document.querySelector(".car-text-main");
+      const download = document.querySelector(".download-link");
+      const close = document.querySelector(".close")
+     
+      carBox.forEach((car) => {
+        car.addEventListener("click", () => {
+          // car.classList.toggle("car-box-active");
+
+          // const value = modal.classList.contains("modal-active");
+          // if (!value) car.children[1].style.setProperty("opacity", 1);
+           
+      close.addEventListener("click",()=>{
+        modal.classList.remove("modal-active")
+      });
+          modal.classList.add("modal-active");
+
+          const url = car.children[0].getAttribute("href");
+          modalImg.src = url;
+          carText.innerHTML = car.children[0].getAttribute("data-name");
+          download.setAttribute("href", url);
+        });
+      });
+     
+      gsap.from(".image-stagger", {
+        opacity: 0,
+        y: 50,
+        duration: 1.5,
+        stagger: 0.1,
+      });
+      gsap.from(".header", {
+        opacity: 0,
+        x: 20,
+        duration: 3,
+      
+      });
+    </script>
+  </body>
+</html>
